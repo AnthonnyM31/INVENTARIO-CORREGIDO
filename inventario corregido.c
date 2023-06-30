@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 void primer_menu();
 int el_switch(int ID[7], char nombre[7][100],  char descripcion[7][1000], int cantidad[7], float precio[7]);
@@ -120,12 +120,27 @@ case 1:
     break;
 
 
-case 2: printf("Por favor introduce el ID del producto\n"); scanf("%i", &codigo);
-printf("producto eliminado exitosamente...");
+case 2: 
+
+printf("Por favor introduce el ID del producto\n");    scanf("%i",&codigo);
+
+for (int i = 0; i < 7; i++) {
+        if (ID[i] == codigo) {
+            ID[i]=0;
+            strcpy(nombre[i],".");
+            strcpy(descripcion[i],".");
+            cantidad[i]=0;
+            precio[i]=0;
+            break;
+}
 break;
+
 
 default: printf("por favor ingresa una opcion disponible (1 o 2)");
 
     }
 }
+}
+
+
 
